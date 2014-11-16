@@ -17,8 +17,7 @@ There are a couple of quick steps to get this running on your machine (assumiung
 		$ git clone git@github.com:derrickshowers/job-tracker.git 
 
 2. Active vitual env
-    
-        $ cd ../
+
         $ . bin/activate
 
 3. Install dependencies
