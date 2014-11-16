@@ -9,6 +9,7 @@ There are a couple of quick steps to get this running on your machine (assumiung
 
 1. Some Initial Setup (make sure you have [Homebrew](http://brew.sh/) installed)
 
+		$ brew install python
 		$ brew install python3
 		$ pip install virtualenv
 		$ cd <whatever-you-want-to-put-this-thang>
@@ -30,6 +31,8 @@ There are a couple of quick steps to get this running on your machine (assumiung
         $ python manage.py runserver
 
 4. Navigate to [http://localhost:8000/](http://localhost:8000/).
+
+*When finished, you probably want to type `deactivate` to exit the virtual envrionment*
 
 ## Structure
 
