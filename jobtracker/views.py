@@ -8,19 +8,27 @@ from linkedin import linkedin
 # Create your views here.
 def index(request):
     if request.user.is_authenticated():
-        return redirect('/dashboard/')
+        return redirect('jobtracker.views.dashboard')
     else:
-        context = { 'linkedin_auth_url': linkedin.AuthorizationURL.url }
+        context = { 'linkedin_auth_url': linkedin.getAuthorizationURL() }
         return render(request, 'common/index.html', context)
 
 def auth(request):
-    code = linkedin.AccessToken.getCode(request)
-    user = linkedin.AccessToken.sendCode(code)
+    # get the user from the 'code' param in the url
+    user = linkedin.storeLinkedinUser(linkedin.getCode(request))
 
     # TODO: Make this more secure than just setting 'password' as the passowrd
+    # authenticate user
     authUser = authenticate(username=user.username, password='password')
-    login(request, authUser)
-    return redirect('/dashboard/')
+
+    # log him/her/it in if all is good
+    if authUser is not None:
+        login(request, authUser)
+    else:
+        redirect('/?error=notAuthorized')
+
+    # redirect to dashboard if all is good
+    return redirect('jobtracker.views.dashboard')
 
 def dashboard(request):
     if request.user.is_authenticated():
@@ -28,8 +36,8 @@ def dashboard(request):
         context = { 'jobs_list': jobs_list }
         return render(request, 'jobs/index.html', context)
     else:
-        return redirect('/')
+        return redirect('jobtracker.views.index')
 
 def userLogout(request):
     logout(request)
-    return redirect('/')
+    return redirect('jobtracker.views.index')
