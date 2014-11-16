@@ -1,0 +1,19 @@
+{% extends "common/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+<!-- show all jobs -->
+{% block content %}
+	{% if jobs_list %}
+	    <ul>
+	    {% for job in jobs_list %}
+	        <li>{{ job.title }}</li>
+	        <li>{{ job.company }}</li>
+	        <li>{{ job.description }}</li>
+	        <li>{{ job.status }}</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No jobs are currently saved.</p>
+	{% endif %}
+{% endblock %}
