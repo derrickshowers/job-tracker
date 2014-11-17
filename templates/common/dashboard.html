@@ -2,18 +2,83 @@
 
 {% block title %}Dashboard{% endblock %}
 
-<!-- show all jobs -->
+
 {% block content %}
-    {% if jobs_list %}
-        <ul>
+<!-- TODOS -->
+<div class="row">
+    <div class="large-3 columns ">
+        <div class="panel">
+            <h5><a href="#">TODOS</a></h5>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+                <section class="section">
+                    <!-- PLACEHOLDERS FOR TODO API -->
+                    <ul>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOBS -->
+    <div class="large-6 columns">
+        {% if jobs_list %}
         {% for job in jobs_list %}
-            <li>{{ job.title }}</li>
-            <li>{{ job.company }}</li>
-            <li>{{ job.description }}</li>
-            <li>{{ job.status }}</li>
-        {% endfor %}
-        </ul>
+        <dl class="accordion" data-accordion>
+            <dd class="accordion-navigation">
+                <a href="#panel{{forloop.counter}}"><strong>{{ job.title }} | {{ job.company }}</strong></a>
+                <div id="panel{{forloop.counter}}" class="content">
+                    <div class="tabs-content">
+                        <div class="content active" id="panel2-1">
+                            <li>{{ job.description }}</li>
+                            <li>{{ job.status }}</li>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    {% endfor %}
     {% else %}
-        <p>No jobs are currently saved.</p>
+    <p>No jobs are currently saved.</p>
     {% endif %}
+
+
+</div>
+
+<!-- CALENDAR -->
+<div class="large-3 columns ">
+    <div class="panel">
+        <h5><a href="#">CALENDAR</a></h5>
+        <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            <section class="section">
+                <!-- PLACEHOLDERS FOR CALENDAR API -->
+                <ul>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
 {% endblock %}
