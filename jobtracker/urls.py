@@ -8,6 +8,8 @@ urlpatterns = patterns('',
 
     url(r'^$', 'jobtracker.views.index'),
     url(r'^dashboard/', 'jobtracker.views.dashboard'),
+    url(r'^auth/', 'jobtracker.views.auth'),
+    url(r'^logout/', 'jobtracker.views.userLogout'),
 
 
     url(r'^admin/', include(admin.site.urls)),
