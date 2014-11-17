@@ -35,7 +35,7 @@ def dashboard(request):
         linkedin.refreshConnections(request.user)
         jobs_list = Job.objects.all()
         context = { 'jobs_list': jobs_list }
-        return render(request, 'jobs/index.html', context)
+        return render(request, 'common/dashboard.html', context)
     else:
         return redirect('jobtracker.views.index')
 
