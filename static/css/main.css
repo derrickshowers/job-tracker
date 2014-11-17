@@ -1,1 +1,4 @@
 /* main styles */
+ul {
+  list-style-type: none;
+}
