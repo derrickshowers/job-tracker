@@ -13,7 +13,9 @@
         <script src="{% static 'vendor/js/vendor/modernizr.js' %}"></script>
 
     </head>
-    {% include "common/sections/header.html" %}
+        {% block header_include %}
+            {% include "common/sections/header.html" %}
+        {% endblock %}
     <body>
         <div class="content">{% block content %}{% endblock %}</div>
     <script src="{% static 'vendor/js/vendor/jquery.js' %}"></script>
