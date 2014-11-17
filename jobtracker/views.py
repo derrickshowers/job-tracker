@@ -32,6 +32,7 @@ def auth(request):
 
 def dashboard(request):
     if request.user.is_authenticated():
+        linkedin.refreshConnections(request.user)
         jobs_list = Job.objects.all()
         context = { 'jobs_list': jobs_list }
         return render(request, 'jobs/index.html', context)
