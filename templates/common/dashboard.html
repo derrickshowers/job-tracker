@@ -31,7 +31,56 @@
     </div>
 
     <!-- JOBS -->
+    <!-- NEW JOB MODAL -->
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <form>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Job Title
+                    <input type="text" />
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company
+                    <input type="text" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Job Description
+              <textarea></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>url
+                    <input type="text" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Select Box
+              <select>
+                <option value="new">Haven't applied yet</option>
+                <option value="applied">Applied</option>
+                <option value="process">In process (got a reply)</option>
+                <option value="connection">Have a connection, ask to get hooked up</option>
+                <option value="stay">No, right now but stay in touch</option>
+                <option value="nope">Didn't work out</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </form>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <!-- JOBS LIST -->
     <div class="large-6 columns">
+        <a href="#" data-reveal-id="myModal" class="button expand">+ Add a new job</a>
         {% if jobs_list %}
         {% for job in jobs_list %}
         <dl class="accordion" data-accordion>
@@ -40,8 +89,22 @@
                 <div id="panel{{forloop.counter}}" class="content">
                     <div class="tabs-content">
                         <div class="content active" id="panel2-1">
-                            <li>{{ job.description }}</li>
-                            <li>{{ job.status }}</li>
+                            <p>{{ job.description }}</p>
+                            <form>
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <label>Status</label>
+                                        <select>
+                                            <option value="new">Haven't applied yet</option>
+                                            <option value="applied">Applied</option>
+                                            <option value="process">In process (got a reply)</option>
+                                            <option value="connection">Have a connection, ask to get hooked up</option>
+                                            <option value="stay">No, right now but stay in touch</option>
+                                            <option value="nope">Didn't work out</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
