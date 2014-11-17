@@ -1,22 +1,41 @@
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-    <header>
-      <nav class="tab-bar">
-        <section class="right-small">
-          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-        </section>
+<!-- logged in -->
+<header>
+  <nav class="tab-bar">
+    <section class="right-small">
+      <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
 
-        <section class="middle tab-bar-section">
-          <h1 class="title">Job Finder</h1>
+    <section class="middle tab-bar-section">
+      <h1 class="title">Job Finder</h1>
+    </section>
+  </nav>
+
+  <aside class="right-off-canvas-menu">
+    <ul class="off-canvas-list">
+      <li><label>Header 1</label></li>
+      <li><a href="#">My Jobs</a></li>
+      <li><a href="#">Something else</a></li>
+      <li><a href="#" class="button expand">Log Out</a></li>
+    </ul>
+  </aside>
+</header>
+
+<!-- logged out -->
+<div class="off-canvas-wrap" data-offcanvas>
+  <header>
+    <div class="inner-wrap">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">My Site</a></h1>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li><a href="{{ linkedin_auth_url }}">Log in with LinkedIn</a></li>
+          </ul>
         </section>
       </nav>
-
-      <aside class="right-off-canvas-menu">
-        <ul class="off-canvas-list">
-          <li><label>Header 1</label></li>
-          <li><a href="#">My Jobs</a></li>
-          <li><a href="#">Something else</a></li>
-          <li><a href="#" class="button expand">Log Out</a></li>
-        </ul>
-      </aside>
     </header>
