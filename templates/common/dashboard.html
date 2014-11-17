@@ -2,18 +2,146 @@
 
 {% block title %}Dashboard{% endblock %}
 
-<!-- show all jobs -->
+
 {% block content %}
-    {% if jobs_list %}
-        <ul>
+<!-- TODOS -->
+<div class="row">
+    <div class="large-3 columns ">
+        <div class="panel">
+            <h5><a href="#">TODOS</a></h5>
+            <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+                <section class="section">
+                    <!-- PLACEHOLDERS FOR TODO API -->
+                    <ul>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                        <li>todo list item</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOBS -->
+    <!-- NEW JOB MODAL -->
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <form>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Job Title
+                    <input type="text" />
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company
+                    <input type="text" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Job Description
+              <textarea></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>url
+                    <input type="text" />
+                </label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Select Box
+              <select>
+                <option value="new">Haven't applied yet</option>
+                <option value="applied">Applied</option>
+                <option value="process">In process (got a reply)</option>
+                <option value="connection">Have a connection, ask to get hooked up</option>
+                <option value="stay">No, right now but stay in touch</option>
+                <option value="nope">Didn't work out</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </form>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <!-- JOBS LIST -->
+    <div class="large-6 columns">
+        <a href="#" data-reveal-id="myModal" class="button expand">+ Add a new job</a>
+        {% if jobs_list %}
         {% for job in jobs_list %}
-            <li>{{ job.title }}</li>
-            <li>{{ job.company }}</li>
-            <li>{{ job.description }}</li>
-            <li>{{ job.status }}</li>
-        {% endfor %}
-        </ul>
+        <dl class="accordion" data-accordion>
+            <dd class="accordion-navigation">
+                <a href="#panel{{forloop.counter}}"><strong>{{ job.title }} | {{ job.company }}</strong></a>
+                <div id="panel{{forloop.counter}}" class="content">
+                    <div class="tabs-content">
+                        <div class="content active" id="panel2-1">
+                            <p>{{ job.description }}</p>
+                            <form>
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <label>Status</label>
+                                        <select>
+                                            <option value="new">Haven't applied yet</option>
+                                            <option value="applied">Applied</option>
+                                            <option value="process">In process (got a reply)</option>
+                                            <option value="connection">Have a connection, ask to get hooked up</option>
+                                            <option value="stay">No, right now but stay in touch</option>
+                                            <option value="nope">Didn't work out</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    {% endfor %}
     {% else %}
-        <p>No jobs are currently saved.</p>
+    <p>No jobs are currently saved.</p>
     {% endif %}
+
+
+</div>
+
+<!-- CALENDAR -->
+<div class="large-3 columns ">
+    <div class="panel">
+        <h5><a href="#">CALENDAR</a></h5>
+        <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            <section class="section">
+                <!-- PLACEHOLDERS FOR CALENDAR API -->
+                <ul>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                    <li>calendar item</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
 {% endblock %}

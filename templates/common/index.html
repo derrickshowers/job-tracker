@@ -2,7 +2,48 @@
 
 {% block title %}Welcome{% endblock %}
 
+{% block header_include %}
+{% include "common/sections/header_logged_out.html" %}
+{% endblock %}
+
 {% block content %}
-    <p>Thanks for coming, but you're not yet logged in</p>
-    <a href="{{ linkedin_auth_url }}">Log in with LinkedIn</a>
+<section class="index-background">
+    <div class="row">
+        <div class="large-12 columns">
+            <div id="slider">
+                <img src="http://placehold.it/1000x400&text=[ img 1 ]"/>
+                <div class="panel callout radius">
+                    <h5>Don't have an account?</h5>
+                    <a href="{{ linkedin_auth_url }}">Sign up with LinkedIn</a>
+                </div>
+            </div>
+
+            <hr/>
+        </div>
+    </div>
+</section>
+
+<aside>
+    <div class="row">
+        <div class="large-4 columns">
+            <img src="../../static/img/spreadsheet.png"/>
+            <h4>View Jobs</h4>
+            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+        </div>
+
+        <div class="large-4 columns">
+          <img src="../../static/img/todo.png"/>
+          <h4>Todo List</h4>
+          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      </div>
+
+      <div class="large-4 columns">
+          <img src="../../static/img/calendar.png"/>
+          <h4>Calendar</h4>
+          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+      </div>
+
+  </div>
+</aside>
+
 {% endblock %}

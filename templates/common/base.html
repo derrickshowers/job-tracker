@@ -7,13 +7,16 @@
         <title>{% block title %}{% endblock %} | Job Tracker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'vendor/css/foundation.css' %}" />
+
         <script src="{% static 'vendor/js/vendor/modernizr.js' %}"></script>
 
     </head>
-    {% include "common/sections/header.html" %}
+        {% block header_include %}
+            {% include "common/sections/header.html" %}
+        {% endblock %}
     <body>
         <div class="content">{% block content %}{% endblock %}</div>
     <script src="{% static 'vendor/js/vendor/jquery.js' %}"></script>

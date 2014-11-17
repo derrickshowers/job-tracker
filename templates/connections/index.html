@@ -1,0 +1,21 @@
+{% extends "common/base.html" %}
+
+{% block title %}Connections{% endblock %}
+
+<!-- show all jobs -->
+{% block content %}
+	{% if connections_list %}
+		{% for connection in connections_list %}
+		<h3>Connection {{ forloop.counter }}
+	    <ul>
+	        <li>ID: {{ connection.id }}</li>
+	        <li>Name: {{ connection.firstName }} {{ connection.lastName }}</li>
+	        <li>Company: {{ connection.company }}</li>
+	    
+	    </ul>
+	    <hr>
+	    {% endfor %}
+	{% else %}
+	    <p>No connections are currently available.</p>
+	{% endif %}
+{% endblock %}
