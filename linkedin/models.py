@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+# TODO: LinkedIn should go to Linkedin
 class LinkedInUser(models.Model):
     user = models.OneToOneField(User)
     access_token = models.CharField(max_length=200)
