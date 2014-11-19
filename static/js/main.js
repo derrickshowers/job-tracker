@@ -1,26 +1,29 @@
-console.log('hello');
-
 $("#newJobForm").submit(function(e){
     console.log(e);
-    // e.preventDefault();
-
     var isValid = validateForm(this);
     return isValid;
 });
 
 function validateForm(form) {
-    console.log(form);
-    if(form.title.value === ""){
-        alert("Error: Input is empty");
-        // form.title.focus();
-        console.log("no input");
-        return false;
-    }
-    if(form.company.value === ""){
-        alert("Error: Input is empty");
-        // form.company.focus();
-        return false;
-    }
-    return true;
+    var isFormValid = false;
+    isFormValid = errorMessage(form.title);
+    isFormValid = errorMessage(form.company);
+    return isFormValid;
 }
 
+function errorMessage(field){
+    $(field).removeClass("error");
+    $(field).next().remove();
+    var errorMessageEl = '<small class="error">Invalid entry</small>';
+    if(field.value === ""){
+        $(field).addClass("error");
+        $(field).after(errorMessageEl);
+        return false;
+    } else {
+        return true;
+    }
+}
+
+$('#newJob').click(function(e){
+    $('#newJobForm').find("input").val("");
+});
