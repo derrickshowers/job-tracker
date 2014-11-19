@@ -33,7 +33,8 @@
     <!-- JOBS -->
     <!-- NEW JOB MODAL -->
     <div id="myModal" class="reveal-modal" data-reveal>
-        <form name="newJobForm" onsubmit="return validateForm()" method="post" action="form-handler">
+        <form id="newJobForm" name="newJobForm" method="post" action="form-handler">
+        {% csrf_token %}
             <div class="row">
                 <div class="large-6 columns">
                     <label>Job Title
